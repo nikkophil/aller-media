@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { IArticle } from "../../types";
+import "./article.css";
 
 interface IArticleProps {
   article: IArticle;
@@ -16,9 +17,23 @@ const Article: React.FunctionComponent<IArticleProps> = ({
   const [newTitle, setTitle] = useState<string>(article.title);
 
   return (
-    <div style={{ gridColumn: "span " + article.width }}>
+    <div
+      style={{
+        gridColumn: "span " + article.width,
+        margin: "5px",
+        background: "gray",
+        border: "2px solid black",
+      }}
+    >
       <a href={article.url}>
-        <img src={article.imageUrl} alt="Could not find" />
+        <img
+          style={{
+            marginTop: "5px",
+            border: "2px solid",
+          }}
+          src={article.imageUrl}
+          alt="Could not find"
+        />
       </a>
       {isActive ? (
         <form onSubmit={handleSubmit}>
@@ -32,7 +47,10 @@ const Article: React.FunctionComponent<IArticleProps> = ({
       ) : (
         <div>
           <h1>{newTitle}</h1>
-          <button onClick={() => setActive(!isActive)}></button>
+          <button className="button" onClick={() => setActive(!isActive)}>
+            {" "}
+            Edit Title
+          </button>
         </div>
       )}
     </div>
