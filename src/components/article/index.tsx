@@ -36,7 +36,7 @@ const Article: React.FunctionComponent<IArticleProps> = ({
         />
       </a>
       {isActive ? (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={() => setActive(!isActive)}>
           <input
             type="text"
             value={newTitle}
