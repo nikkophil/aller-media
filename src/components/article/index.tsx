@@ -1,12 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-
-interface IArticle {
-  width: Number;
-  url: string;
-  title: string;
-  imageUrl: string;
-}
+import { IArticle } from "../../types";
 
 interface IArticleProps {
   article: IArticle;
